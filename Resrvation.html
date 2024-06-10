@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation Hôtel</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+    <header>
+        <h1>Booking</h1>
+    </header>
+    <div class="container">
+        <h2>France - Etranger</h2>
+        <form id="formulaireReservation">
+            <div class="form-group">
+                <label for="lieuSejour">Lieu de séjour</label>
+                <input type="text" id="lieuSejour" name="lieuSejour" placeholder="Lieu du séjour">
+            </div>
+            <div class="form-group">
+                <label for="arrivee">Arrivée</label>
+                <input type="date" id="arrivee" name="arrivee">
+            </div>
+            <div class="form-group">
+                <label for="depart">Départ</label>
+                <input type="date" id="depart" name="depart">
+            </div>
+            <div class="form-group">
+                <label>Adulte</label>
+                <button type="button" class="btn" onclick="diminuer('adultes')">-</button>
+                <input type="text" id="adultes" value="0" readonly>
+                <button type="button" class="btn" onclick="augmenter('adultes')">+</button>
+            </div>
+            <div class="form-group">
+                <label>Enfant</label>
+                <button type="button" class="btn" onclick="diminuer('enfants')">-</button>
+                <input type="text" id="enfants" value="0" readonly>
+                <button type="button" class="btn" onclick="augmenter('enfants')">+</button>
+            </div>
+            <div id="agesEnfants"></div>
+            <div class="form-group">
+                <label>Chambre</label>
+                <button type="button" class="btn" onclick="diminuer('chambres')">-</button>
+                <input type="text" id="chambres" value="0" readonly>
+                <button type="button" class="btn" onclick="augmenter('chambres')">+</button>
+            </div>
+            <div id="voyageTravailContainer" class="form-group">
+                <input type="checkbox" id="voyageTravail" name="voyageTravail">
+                <label for="voyageTravail">Je voyage pour le travail</label>
+            </div>
+            <button type="button" onclick="soumettreFormulaire()">Rechercher</button>
+            <button type="reset">Effacer</button>
+        </form>
+        <div id="confirmation">
+            <h2>Confirmation réservation</h2>
+            <p>Nombre(s) d'adulte(s) : <span id="confirmationAdultes">0</span></p>
+            <p>Nombre(s) d'enfant(s) : <span id="confirmationEnfants">0</span></p>
+            <p>Nombre(s) de chambre(s) : <span id="confirmationChambres">0</span></p>
+            <p>Voyage pour le travail : <span id="confirmationVoyageTravail">Non</span></p>
+        </div>
+    </div>
+    <footer>
+        Indiquez vos dates de réservation - Toute annulation doit se faire 48h avant
+    </footer>
+    <script src="reservation.js"></script>
+</body>
+</html>
+
